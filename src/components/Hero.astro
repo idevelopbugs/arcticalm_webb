@@ -1,0 +1,73 @@
+---
+import StoreBadges from './StoreBadges.astro';
+---
+
+<section class="hero">
+  <div class="hero__inner">
+    <img
+      class="hero__icon"
+      src="/app-icon.png"
+      alt="Arcticalm app icon"
+      width="128"
+      height="128"
+      fetchpriority="high"
+    />
+    <h1 class="hero__title">Arcticalm</h1>
+    <p class="hero__tagline">
+      Guided breathing, meditation, and cold exposure tracking — built for everyone.
+    </p>
+    <p class="hero__sub">
+      A calm, accessible wellness companion for iOS and Android. Designed to work
+      with screen readers, with audio off, and with Reduce Motion enabled.
+    </p>
+    <StoreBadges />
+  </div>
+</section>
+
+<style>
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 1.25rem;
+    background: linear-gradient(180deg, #E6F4FE 0%, #F4FAFE 60%, #FFFFFF 100%);
+  }
+
+  .hero__inner {
+    max-width: 38rem;
+    text-align: center;
+  }
+
+  .hero__icon {
+    display: inline-flex;
+    align-self: center;
+    width: 128px;
+    height: 128px;
+    border-radius: 28px;
+    box-shadow: 0 20px 40px -20px rgba(20, 60, 100, 0.35);
+    margin-bottom: 1.5rem;
+  }
+
+  .hero__title {
+    font-size: clamp(2.5rem, 6vw, 3.75rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin: 0 0 0.75rem;
+    color: #0c2236;
+  }
+
+  .hero__tagline {
+    font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+    color: #1a3a55;
+    margin: 0 0 1rem;
+    line-height: 1.45;
+  }
+
+  .hero__sub {
+    font-size: 1rem;
+    color: #335778;
+    margin: 0;
+    line-height: 1.6;
+  }
+</style>

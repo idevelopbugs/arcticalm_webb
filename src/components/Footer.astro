@@ -1,0 +1,53 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <nav class="footer__nav" aria-label="Footer">
+    <a href="/privacy">Privacy</a>
+    <a href="/support">Support</a>
+    <a href="mailto:hello@arcticalm.com">Contact</a>
+  </nav>
+  <p class="footer__copy">© {year} Arcticalm. All rights reserved.</p>
+</footer>
+
+<style>
+  .footer {
+    padding: 2.5rem 1.25rem 3rem;
+    background: #0c2236;
+    color: #c8d8e6;
+    text-align: center;
+  }
+
+  .footer__nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .footer__nav a {
+    color: #e6f4fe;
+    text-decoration: none;
+    font-size: 0.95rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+  }
+
+  .footer__nav a:hover,
+  .footer__nav a:focus-visible {
+    text-decoration: underline;
+  }
+
+  .footer__nav a:focus-visible {
+    outline: 2px solid #e6f4fe;
+    outline-offset: 2px;
+  }
+
+  .footer__copy {
+    font-size: 0.85rem;
+    opacity: 0.8;
+    margin: 0;
+  }
+</style>
