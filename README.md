@@ -20,18 +20,6 @@ npm run preview  # serve the built site locally
 
 Pushes to `main` build and deploy to GitHub Pages via `.github/workflows/deploy.yml`.
 
-One-time GitHub setup:
-
-1. **Settings → Pages → Source:** GitHub Actions.
-2. **Settings → Pages → Custom domain:** `arcticalm.com`. Enable **Enforce HTTPS** once DNS resolves.
-3. DNS at the registrar (apex domain):
-   - `A 185.199.108.153`
-   - `A 185.199.109.153`
-   - `A 185.199.110.153`
-   - `A 185.199.111.153`
-   - Optional `www` → CNAME `<github-user>.github.io`
-
-The `public/CNAME` file is committed so each deploy preserves the custom domain.
 
 ## TODOs before launch
 
