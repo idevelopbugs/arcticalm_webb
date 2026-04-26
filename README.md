@@ -37,4 +37,3 @@ Pushes to `main` build and deploy to GitHub Pages via `.github/workflows/deploy.
 - `sitemap-index.xml` via `@astrojs/sitemap`
 - `robots.txt`
 - `theme-color` and `apple-touch-icon`
-- Reduced-motion CSS guard
