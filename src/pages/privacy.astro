@@ -1,0 +1,323 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+---
+
+<BaseLayout
+  title="Privacy Policy — Arcticalm"
+  description="Arcticalm privacy policy. Learn how we handle your data."
+>
+  <header class="legal-hero">
+    <div class="legal-hero__inner">
+      <a href="/" class="back-link" aria-label="Back to home">← Arcticalm</a>
+      <h1>Privacy Policy</h1>
+      <p class="legal-hero__meta">Effective date: April 27, 2025 &nbsp;·&nbsp; Last updated: April 27, 2025</p>
+    </div>
+  </header>
+
+  <main class="legal-body">
+    <div class="legal-content">
+
+      <p class="lead">
+        Arcticalm ("we", "our", or "us") is committed to protecting your privacy. This Privacy Policy
+        explains what information the Arcticalm mobile application ("App") collects, how we use it,
+        and your rights. Please read it carefully before using the App.
+      </p>
+
+      <section>
+        <h2>1. Information We Collect</h2>
+
+        <h3>1.1 Data Stored Locally on Your Device</h3>
+        <p>
+          Arcticalm stores your wellness session data exclusively on your device using a local
+          database (SQLite). This includes:
+        </p>
+        <ul>
+          <li>Activity type (e.g., box breathing, cold plunge, timed meditation)</li>
+          <li>Session start time, end time, and duration</li>
+          <li>Whether the session was completed</li>
+          <li>Optional session metadata (e.g., rounds completed)</li>
+        </ul>
+        <p>
+          This data never leaves your device and is not transmitted to Arcticalm's servers or any
+          third party unless explicitly stated below.
+        </p>
+
+        <h3>1.2 Microphone (Affirmation Meditation Feature)</h3>
+        <p>
+          The Affirmation Meditation feature allows you to record your own voice affirmations.
+          Recordings are stored locally on your device only. We do not upload, process, or have
+          access to any audio you record. You can delete recordings at any time through the App.
+        </p>
+
+        <h3>1.3 Device Locale</h3>
+        <p>
+          The App reads your device's language/locale setting solely to display the interface in
+          your preferred language (English, French, or Spanish). This information is not stored or
+          transmitted.
+        </p>
+
+        <h3>1.4 Purchase and Subscription Data (RevenueCat)</h3>
+        <p>
+          If you purchase a premium subscription, the App uses
+          <strong>RevenueCat</strong> — a third-party subscription management service. RevenueCat
+          may collect:
+        </p>
+        <ul>
+          <li>A pseudonymous app user identifier</li>
+          <li>Device type, operating system version, and app version</li>
+          <li>Purchase history and subscription status</li>
+          <li>Country/region (derived from the App Store or Google Play account)</li>
+        </ul>
+        <p>
+          RevenueCat's data practices are governed by their own
+          <a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener noreferrer">
+            Privacy Policy
+          </a>. We do not receive or store your payment card details — those are handled entirely
+          by Apple App Store or Google Play.
+        </p>
+
+        <h3>1.5 Information We Do Not Collect</h3>
+        <p>We do not collect:</p>
+        <ul>
+          <li>Your name, email address, or any other personal identifier</li>
+          <li>Location data</li>
+          <li>Health or fitness data from HealthKit, Google Fit, or similar services</li>
+          <li>Crash reports or usage analytics beyond what RevenueCat provides for purchases</li>
+          <li>Advertising identifiers</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>2. How We Use Your Information</h2>
+        <p>The limited information described above is used exclusively to:</p>
+        <ul>
+          <li>Display your session history and progress within the App</li>
+          <li>Play back your recorded affirmations within the App</li>
+          <li>Verify and manage your subscription entitlements</li>
+          <li>Display the App interface in your device language</li>
+        </ul>
+        <p>We do not use your information for advertising, profiling, or marketing purposes.</p>
+      </section>
+
+      <section>
+        <h2>3. Sharing of Information</h2>
+        <p>
+          We do not sell, trade, or rent your personal information. We share information only
+          with:
+        </p>
+        <ul>
+          <li>
+            <strong>RevenueCat</strong> — solely to process and verify in-app purchases and
+            subscriptions, as described in Section 1.4.
+          </li>
+          <li>
+            <strong>Apple App Store / Google Play</strong> — to facilitate payment processing.
+            We do not receive your payment details.
+          </li>
+        </ul>
+        <p>
+          We may also disclose information if required by law, court order, or governmental
+          authority.
+        </p>
+      </section>
+
+      <section>
+        <h2>4. Data Retention and Deletion</h2>
+        <p>
+          Session data and audio recordings are stored on your device and are deleted when you
+          uninstall the App, or when you delete them manually within the App.
+        </p>
+        <p>
+          RevenueCat retains purchase records in accordance with their own retention policy.
+          Contact RevenueCat directly to exercise rights over that data.
+        </p>
+        <p>
+          We do not maintain server-side user accounts, so there is no Arcticalm account data
+          to delete.
+        </p>
+      </section>
+
+      <section>
+        <h2>5. Children's Privacy</h2>
+        <p>
+          The App is intended for users aged 15 and older. We do not knowingly collect personal
+          information from children under 13 (or the applicable age in your jurisdiction). If you
+          believe a child has provided us with personal information, please contact us and we will
+          take steps to address it.
+        </p>
+      </section>
+
+      <section>
+        <h2>6. Security</h2>
+        <p>
+          Because session data and recordings are stored locally on your device, their security
+          depends on your device's security features (screen lock, encryption). We encourage you
+          to use a strong passcode and keep your operating system up to date.
+        </p>
+      </section>
+
+      <section>
+        <h2>7. Your Rights</h2>
+        <p>
+          Depending on where you live, you may have rights regarding your personal data,
+          including access, correction, deletion, and portability. Because most data is stored
+          locally on your device and under your control, you can exercise most of these rights
+          directly within the App or by uninstalling it.
+        </p>
+        <p>
+          For any data held by RevenueCat on our behalf, contact us at and we will facilitate
+          your request.
+        </p>
+        <p>
+          <strong>GDPR (EEA/UK residents):</strong> You have the right to access, rectify, erase,
+          restrict, or object to our processing of your personal data, and to data portability.
+          Our legal basis for any processing via RevenueCat is the performance of a contract
+          (subscription services) and our legitimate interest in operating the App.
+        </p>
+        <p>
+          <strong>CCPA (California residents):</strong> We do not sell personal information.
+          California residents may request disclosure of personal information collected about them.
+        </p>
+      </section>
+
+      <section>
+        <h2>8. Third-Party Links and Services</h2>
+        <p>
+          The App may contain links to the Apple App Store, Google Play, or other external
+          websites. We are not responsible for the privacy practices of those sites and encourage
+          you to review their privacy policies.
+        </p>
+      </section>
+
+      <section>
+        <h2>9. Changes to This Policy</h2>
+        <p>
+          We may update this Privacy Policy from time to time. We will notify you of material
+          changes by updating the "Last updated" date above and, where appropriate, by posting
+          a notice in the App. Continued use of the App after changes are posted constitutes
+          your acceptance of the revised policy.
+        </p>
+      </section>
+
+      <section>
+        <h2>10. Contact Us</h2>
+        <p>
+          If you have any questions or concerns about this Privacy Policy, please contact us at:
+        </p>
+        <p>
+          <strong>Arcticalm</strong><br />
+          Email: <a href="mailto:support@arcticalm.com">support@arcticalm.com</a><br />
+          Website: <a href="https://www.arcticalm.com">www.arcticalm.com</a>
+        </p>
+      </section>
+
+    </div>
+  </main>
+
+  <Footer />
+</BaseLayout>
+
+<style>
+  .legal-hero {
+    background: #0c2236;
+    color: #e6f4fe;
+    padding: 3rem 1.25rem 2.5rem;
+  }
+
+  .legal-hero__inner {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+
+  .back-link {
+    display: inline-block;
+    color: #a8cfea;
+    text-decoration: none;
+    font-size: 0.9rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .back-link:hover {
+    color: #e6f4fe;
+    text-decoration: underline;
+  }
+
+  .legal-hero h1 {
+    margin: 0 0 0.5rem;
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  .legal-hero__meta {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #8bb8d4;
+  }
+
+  .legal-body {
+    background: #f7fbff;
+    padding: 3rem 1.25rem 4rem;
+  }
+
+  .legal-content {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+
+  .lead {
+    font-size: 1.05rem;
+    color: #1a4f7a;
+    border-left: 4px solid #4a9ed6;
+    padding-left: 1rem;
+    margin-bottom: 2.5rem;
+  }
+
+  section {
+    margin-bottom: 2.5rem;
+  }
+
+  h2 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #0c2236;
+    border-bottom: 2px solid #d0e8f7;
+    padding-bottom: 0.4rem;
+    margin-bottom: 1rem;
+  }
+
+  h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #1a4f7a;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    color: #2c4a5e;
+    line-height: 1.7;
+    margin-bottom: 0.9rem;
+  }
+
+  ul {
+    color: #2c4a5e;
+    line-height: 1.7;
+    padding-left: 1.4rem;
+    margin-bottom: 0.9rem;
+  }
+
+  li {
+    margin-bottom: 0.3rem;
+  }
+
+  a {
+    color: #1a6fa8;
+  }
+
+  a:hover {
+    color: #0c2236;
+  }
+</style>
