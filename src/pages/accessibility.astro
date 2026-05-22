@@ -1,0 +1,332 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Footer from '../components/Footer.astro';
+import ObfuscatedEmail from '../components/ObfuscatedEmail.astro';
+import '../styles/global.css';
+---
+
+<BaseLayout
+  title="Accessibility — Arcticalm"
+  description="How Arcticalm approaches accessibility, our WCAG 2.2 AA conformance commitment, and how to report issues."
+>
+  <header class="legal-hero" data-bg="dark">
+    <div class="legal-hero__inner">
+      <h1>Accessibility</h1>
+      <p class="legal-hero__meta">Last updated: May 22, 2026</p>
+    </div>
+  </header>
+
+  <main class="legal-body">
+    <div class="legal-content">
+
+      <p class="lead">
+        Arcticalm is designed for users aged 18–80, including people who are deaf,
+        blind, or living with other disabilities. We treat accessibility as a core
+        requirement, not an afterthought. This page describes the standards we
+        follow, what we've implemented, known limitations, and how to reach us if
+        you run into a barrier.
+      </p>
+
+      <section>
+        <h2>1. Conformance Target</h2>
+        <p>
+          Arcticalm targets conformance with the
+          <strong>Web Content Accessibility Guidelines (WCAG) 2.2, Level AA</strong>,
+          applied to our mobile app (iOS and Android) and to this website. WCAG 2.2
+          is the most current published version of the guidelines as of writing.
+        </p>
+        <p>
+          We also align with platform-native accessibility APIs:
+        </p>
+        <ul>
+          <li><strong>iOS</strong> — UIAccessibility (VoiceOver, Dynamic Type, Reduce Motion, Switch Control)</li>
+          <li><strong>Android</strong> — AccessibilityNodeInfo (TalkBack, font scaling, high-contrast text)</li>
+        </ul>
+        <p>
+          This is a statement of intent and ongoing effort, not a third-party audit
+          certificate. We continuously test against the criteria below and address
+          gaps as they're discovered.
+        </p>
+      </section>
+
+      <section>
+        <h2>2. What We've Implemented</h2>
+
+        <h3>2.1 Screen reader support</h3>
+        <ul>
+          <li>Every interactive element exposes an explicit <code>accessibilityRole</code> (button, link, radio, etc.) so VoiceOver and TalkBack announce it correctly.</li>
+          <li>Every interactive element has a human-readable <code>accessibilityLabel</code>. We never rely on icon-only or symbol-only affordances.</li>
+          <li>Disabled, busy, checked, and expanded states are exposed via <code>accessibilityState</code> so screen readers can announce them accurately.</li>
+          <li>Non-obvious actions (expand/collapse, swipe-to-delete) carry a localized <code>accessibilityHint</code>.</li>
+        </ul>
+
+        <h3>2.2 Dynamic content announcements</h3>
+        <p>
+          Elements whose content changes over time — for example the phase label
+          during a breathing exercise (Inhale, Hold, Exhale) — use
+          <code>accessibilityLiveRegion="polite"</code> so screen readers announce
+          the change without interrupting the user.
+        </p>
+
+        <h3>2.3 Visual contrast</h3>
+        <p>
+          All text and interface elements are designed to meet WCAG AA contrast
+          ratios: <strong>4.5:1 for body text</strong> and <strong>3:1 for large
+          text and meaningful UI components</strong>. We do not introduce design
+          tokens that fall below this threshold. Dark mode is fully supported and
+          tested independently for contrast.
+        </p>
+
+        <h3>2.4 Touch targets</h3>
+        <p>
+          All interactive elements are at least <strong>44×44 points</strong>
+          (Apple's HIG minimum). Where a visual element is smaller than that, the
+          interactive hit area is extended via <code>hitSlop</code> so the user
+          doesn't need pixel-perfect aim.
+        </p>
+
+        <h3>2.5 Equivalents for audio cues (Deaf users)</h3>
+        <p>
+          Every audio cue in Arcticalm has a synchronized visual equivalent:
+        </p>
+        <ul>
+          <li>Breathing pace bells are accompanied by phase animations and live-region text changes.</li>
+          <li>Completion bells are paired with an end-of-session screen.</li>
+          <li>Affirmation playback timing is reflected by the activity timer.</li>
+        </ul>
+        <p>
+          No information in the app is conveyed by sound alone.
+        </p>
+
+        <h3>2.6 Equivalents for visual cues (Blind users)</h3>
+        <p>
+          Every animation or visual rhythm in the app has an accompanying audio
+          cue and announced text. The breathing phase, session progress, and
+          completion state are all reachable without sight.
+        </p>
+
+        <h3>2.7 No motion-only signals</h3>
+        <p>
+          We respect the system <strong>Reduce Motion</strong> preference where
+          available. The animated breathing visuals are decorative — phase
+          information is also delivered via audio and text, so users who disable
+          motion lose nothing functional.
+        </p>
+
+        <h3>2.8 Localization</h3>
+        <p>
+          Every user-facing string — including accessibility labels, hints, and
+          screen-reader announcements — is fully translated into the three
+          languages we support: <strong>English, French, and Spanish</strong>. No
+          English is hardcoded in component code.
+        </p>
+
+        <h3>2.9 Dynamic Type and font scaling</h3>
+        <p>
+          The app respects the system text-size setting on both iOS and Android.
+          Layouts are designed to remain usable at the largest accessible text
+          sizes without truncation or overlap.
+        </p>
+
+        <h3>2.10 No login, minimal cognitive load</h3>
+        <p>
+          Arcticalm has no signup flow, no account recovery, and no password to
+          remember. The user journey from launch to a completed session is
+          deliberately short. This is partly a privacy decision and partly an
+          accessibility decision — fewer steps means fewer opportunities for
+          friction.
+        </p>
+      </section>
+
+      <section>
+        <h2>3. Compatibility</h2>
+        <p>
+          The Arcticalm mobile app has been built and tested against:
+        </p>
+        <ul>
+          <li><strong>iOS VoiceOver</strong> on iOS 17 and later</li>
+          <li><strong>Android TalkBack</strong> on Android 12 and later</li>
+          <li>System Dark Mode and Light Mode on both platforms</li>
+          <li>System font scaling (Dynamic Type on iOS, font size on Android)</li>
+        </ul>
+        <p>
+          This website (arcticalm.com) has been built and tested against current
+          versions of Safari, Chrome, Firefox, and Edge on desktop and mobile, with
+          screen-reader testing in VoiceOver (macOS) and NVDA (Windows).
+        </p>
+      </section>
+
+      <section>
+        <h2>4. Known Limitations</h2>
+        <p>
+          We aim to be honest about where we fall short. Current known limitations:
+        </p>
+        <ul>
+          <li>
+            <strong>Breathing exercises require the screen to be unlocked.</strong>
+            We use Keep Awake to prevent auto-lock during a session, but if a user
+            manually locks the phone mid-session, JavaScript on the device is
+            suspended and audio cues stop firing. Background audio (such as
+            ambient sounds) continues. We're investigating native scheduling so
+            interval audio can survive a manual lock in a future release.
+          </li>
+          <li>
+            <strong>Affirmation recordings rely on the device microphone.</strong>
+            Users without microphone access (hardware fault, permission denied)
+            cannot use the Affirmation Meditation feature. Every other activity
+            in the app remains fully accessible.
+          </li>
+          <li>
+            <strong>Color-only emphasis in some charts.</strong> The Log tab uses
+            color to differentiate activity categories. Category names are also
+            spelled out, but at very small chart sizes the color is the primary
+            cue. We're planning a pattern/shape addition for an upcoming update.
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>5. How We Test</h2>
+        <ul>
+          <li>Manual screen-reader walkthroughs on every new screen before release (VoiceOver and TalkBack).</li>
+          <li>Automated lint rules that reject interactive elements missing accessibility props.</li>
+          <li>Translation-key parity checks in continuous integration so localized accessibility labels never silently fall back to English.</li>
+          <li>Periodic contrast audits of all design tokens.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>6. Reporting an Accessibility Issue</h2>
+        <p>
+          If something in the app or on this website is hard to use, broken with a
+          screen reader, or fails any of the criteria above, we want to know.
+          Please email us with:
+        </p>
+        <ul>
+          <li>What you were trying to do</li>
+          <li>What happened (or didn't)</li>
+          <li>Your device, OS version, and assistive technology (if applicable)</li>
+        </ul>
+        <p>
+          <ObfuscatedEmail label="Support" />
+        </p>
+        <p>
+          We aim to respond within 5 business days and to fix or document
+          confirmed accessibility issues in the next available release.
+        </p>
+      </section>
+
+      <section>
+        <h2>7. Updates to This Statement</h2>
+        <p>
+          We will revise this page when we make material accessibility
+          improvements or discover new limitations. The "Last updated" date at the
+          top of this page reflects the most recent revision.
+        </p>
+      </section>
+
+    </div>
+  </main>
+
+  <Footer />
+</BaseLayout>
+
+<style>
+  .legal-hero {
+    background: #0c2236;
+    color: #e6f4fe;
+    padding: 3rem 1.25rem 2.5rem;
+  }
+
+  .legal-hero__inner {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+
+  .legal-hero h1 {
+    margin: 0 0 0.5rem;
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  .legal-hero__meta {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #8bb8d4;
+  }
+
+  .legal-body {
+    background: #f7fbff;
+    padding: 3rem 1.25rem 4rem;
+  }
+
+  .legal-content {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+
+  .lead {
+    font-size: 1.05rem;
+    color: #1a4f7a;
+    border-left: 4px solid #4a9ed6;
+    padding-left: 1rem;
+    margin-bottom: 2.5rem;
+  }
+
+  section {
+    margin-bottom: 2.5rem;
+  }
+
+  h2 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #0c2236;
+    border-bottom: 2px solid #d0e8f7;
+    padding-bottom: 0.4rem;
+    margin-bottom: 1rem;
+  }
+
+  h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #1a4f7a;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    color: #2c4a5e;
+    line-height: 1.7;
+    margin-bottom: 0.9rem;
+  }
+
+  ul {
+    color: #2c4a5e;
+    line-height: 1.7;
+    padding-left: 1.4rem;
+    margin-bottom: 0.9rem;
+  }
+
+  li {
+    margin-bottom: 0.3rem;
+  }
+
+  a {
+    color: #1a6fa8;
+  }
+
+  a:hover,
+  a:focus-visible {
+    color: #0c2236;
+  }
+
+  code {
+    background: #e6f0f8;
+    padding: 0.1rem 0.35rem;
+    border-radius: 3px;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.92em;
+    color: #0c2236;
+  }
+</style>

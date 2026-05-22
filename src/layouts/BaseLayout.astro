@@ -1,4 +1,6 @@
 ---
+import Header from '../components/Header.astro';
+
 export interface Props {
   title?: string;
   description?: string;
@@ -71,6 +73,33 @@ const jsonLd = {
     <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   </head>
   <body>
-    <slot />
+    <a href="#main-content" class="skip-link" data-bg="dark">Skip to content</a>
+    <Header />
+    <div id="main-content">
+      <slot />
+    </div>
   </body>
 </html>
+
+<style is:global>
+  .skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: #0c2236;
+    color: #e6f4fe;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    border-radius: 0 0 4px 0;
+    z-index: 100;
+    transition: top 150ms ease;
+  }
+
+  .skip-link:focus {
+    top: 0;
+  }
+
+  .skip-link:focus-visible {
+    --focus-offset: -2px;
+  }
+</style>

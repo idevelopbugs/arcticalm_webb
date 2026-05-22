@@ -4,6 +4,20 @@
   box-sizing: border-box;
 }
 
+:root {
+  --focus-color: #1a6fa8;
+  --focus-offset: 2px;
+}
+
+[data-bg="dark"] {
+  --focus-color: #a8cfea;
+}
+
+*:focus-visible {
+  outline: 2px solid var(--focus-color);
+  outline-offset: var(--focus-offset);
+}
+
 html {
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;

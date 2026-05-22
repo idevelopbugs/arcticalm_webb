@@ -1,0 +1,164 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Footer from '../components/Footer.astro';
+import ObfuscatedEmail from '../components/ObfuscatedEmail.astro';
+import '../styles/global.css';
+---
+
+<BaseLayout
+  title="Support — Arcticalm"
+  description="Get help with Arcticalm. Bug reports, feature requests, billing questions, and accessibility issues."
+>
+  <header class="legal-hero" data-bg="dark">
+    <div class="legal-hero__inner">
+      <h1>Support</h1>
+      <p class="legal-hero__meta">We aim to reply within 5 business days.</p>
+    </div>
+  </header>
+
+  <main class="legal-body">
+    <div class="legal-content">
+
+      <p class="lead">
+        Run into a bug, have a question about your subscription, or want to share
+        feedback? Email us. There's no ticketing portal — just one inbox, read by a
+        human.
+      </p>
+
+      <section>
+        <h2>Contact</h2>
+        <p>
+          <ObfuscatedEmail label="Support" />
+        </p>
+      </section>
+
+      <section>
+        <h2>What to include</h2>
+        <p>
+          To help us help you faster, please include:
+        </p>
+        <ul>
+          <li>Your device (e.g. iPhone 15 Pro, Pixel 8) and OS version</li>
+          <li>The Arcticalm version (User tab → bottom of screen)</li>
+          <li>What you were trying to do, and what happened instead</li>
+          <li>A screenshot or short screen recording if possible</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Subscription, refunds, and billing</h2>
+        <p>
+          Subscriptions are handled by Apple and Google, not by us. To manage,
+          pause, or cancel your subscription:
+        </p>
+        <ul>
+          <li><strong>iOS</strong> — Settings → [your name] → Subscriptions → Arcticalm</li>
+          <li><strong>Android</strong> — Play Store → profile icon → Payments &amp; subscriptions → Subscriptions → Arcticalm</li>
+        </ul>
+        <p>
+          Refunds are also processed by the store. Request them through
+          <a href="https://reportaproblem.apple.com" target="_blank" rel="noopener noreferrer">reportaproblem.apple.com</a>
+          (iOS) or
+          <a href="https://support.google.com/googleplay/answer/2479637" target="_blank" rel="noopener noreferrer">Google Play Help</a>
+          (Android). Email us if you need help locating the right form.
+        </p>
+      </section>
+
+      <section>
+        <h2>Other topics</h2>
+        <ul>
+          <li><a href="/privacy">Privacy Policy</a></li>
+          <li><a href="/terms">Terms of Service</a></li>
+          <li><a href="/accessibility">Accessibility</a></li>
+        </ul>
+      </section>
+
+    </div>
+  </main>
+
+  <Footer />
+</BaseLayout>
+
+<style>
+  .legal-hero {
+    background: #0c2236;
+    color: #e6f4fe;
+    padding: 3rem 1.25rem 2.5rem;
+  }
+
+  .legal-hero__inner {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+
+
+  .legal-hero h1 {
+    margin: 0 0 0.5rem;
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  .legal-hero__meta {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #8bb8d4;
+  }
+
+  .legal-body {
+    background: #f7fbff;
+    padding: 3rem 1.25rem 4rem;
+  }
+
+  .legal-content {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+
+  .lead {
+    font-size: 1.05rem;
+    color: #1a4f7a;
+    border-left: 4px solid #4a9ed6;
+    padding-left: 1rem;
+    margin-bottom: 2.5rem;
+  }
+
+  section {
+    margin-bottom: 2.5rem;
+  }
+
+  h2 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #0c2236;
+    border-bottom: 2px solid #d0e8f7;
+    padding-bottom: 0.4rem;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    color: #2c4a5e;
+    line-height: 1.7;
+    margin-bottom: 0.9rem;
+  }
+
+  ul {
+    color: #2c4a5e;
+    line-height: 1.7;
+    padding-left: 1.4rem;
+    margin-bottom: 0.9rem;
+  }
+
+  li {
+    margin-bottom: 0.3rem;
+  }
+
+  a {
+    color: #1a6fa8;
+  }
+
+  a:hover,
+  a:focus-visible {
+    color: #0c2236;
+  }
+</style>

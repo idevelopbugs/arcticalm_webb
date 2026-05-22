@@ -1,0 +1,121 @@
+---
+import { supportEmailParts } from '../data/site';
+
+interface Props {
+  label?: string;
+  classExtra?: string;
+}
+const { label = 'Email', classExtra = '' } = Astro.props;
+
+function rot13(s: string): string {
+  return s.replace(/[a-zA-Z]/g, (c) => {
+    const base = c <= 'Z' ? 65 : 97;
+    return String.fromCharCode(((c.charCodeAt(0) - base + 13) % 26) + base);
+  });
+}
+
+const u = supportEmailParts.user.join('');
+const d = supportEmailParts.domain;
+const t = supportEmailParts.tld;
+
+const encUser = rot13(u);
+const encDomain = rot13(d);
+const encTld = rot13(t);
+---
+
+<button
+  class={`email ${classExtra}`}
+  type="button"
+  data-email
+  data-u={encUser}
+  data-d={encDomain}
+  data-t={encTld}
+  aria-label={`${label}: address revealed on click`}
+>
+  <span class="email__icon" aria-hidden="true">
+    <svg viewBox="0 0 24 24" width="18" height="18">
+      <path
+        fill="currentColor"
+        d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Zm9 8L4.2 7.4a1 1 0 0 0-1.2 1.6L11.4 15a1 1 0 0 0 1.2 0l8.4-6a1 1 0 0 0-1.2-1.6L12 13Z"
+      ></path>
+    </svg>
+  </span>
+  <span class="email__label">{label}</span>
+  <span class="email__addr" data-fill aria-live="polite">[click to reveal]</span>
+</button>
+
+<script>
+  function rot13Decode(s: string): string {
+    return s.replace(/[a-zA-Z]/g, (c) => {
+      const base = c <= 'Z' ? 65 : 97;
+      return String.fromCharCode(((c.charCodeAt(0) - base + 13) % 26) + base);
+    });
+  }
+
+  document.querySelectorAll<HTMLButtonElement>('[data-email]').forEach((btn) => {
+    let revealed = '';
+    const build = () => {
+      if (revealed) return revealed;
+      const u = rot13Decode(btn.dataset.u || '');
+      const d = rot13Decode(btn.dataset.d || '');
+      const t = rot13Decode(btn.dataset.t || '');
+      revealed = `${u}@${d}.${t}`;
+      return revealed;
+    };
+
+    btn.addEventListener('click', () => {
+      const addr = build();
+      const fill = btn.querySelector<HTMLElement>('[data-fill]');
+      if (fill) fill.textContent = addr;
+      window.location.href = `mailto:${addr}`;
+    });
+
+    const reveal = () => {
+      const addr = build();
+      const fill = btn.querySelector<HTMLElement>('[data-fill]');
+      if (fill && fill.textContent !== addr) fill.textContent = addr;
+    };
+    btn.addEventListener('mouseenter', reveal);
+    btn.addEventListener('focus', reveal);
+  });
+</script>
+
+<style>
+  .email {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.7rem 1.1rem;
+    background: #ffffff;
+    border: 1px solid #d0e8f7;
+    border-radius: 6px;
+    color: #0c2236;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 0.95rem;
+    transition: border-color 200ms ease, background 200ms ease, box-shadow 200ms ease;
+  }
+
+  .email:hover,
+  .email:focus-visible {
+    border-color: #1a6fa8;
+    background: #f7fbff;
+  }
+
+  .email__icon {
+    color: #1a6fa8;
+    display: inline-flex;
+  }
+
+  .email__label {
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #5a7a93;
+  }
+
+  .email__addr {
+    color: #0c2236;
+    font-feature-settings: 'tnum';
+  }
+</style>
