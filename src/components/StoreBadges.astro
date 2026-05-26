@@ -1,6 +1,5 @@
 ---
 const appStoreUrl = '#';
-const playStoreUrl = '#';
 ---
 
 <div class="store-badges">
@@ -22,24 +21,22 @@ const playStoreUrl = '#';
     </span>
   </a>
 
-  <a
-    class="store-badge store-badge--google"
-    href={playStoreUrl}
-    aria-label="Get Arcticalm on Google Play"
-    rel="noopener"
+  <span
+    class="store-badge store-badge--google store-badge--disabled"
+    role="text"
+    aria-label="Arcticalm on Google Play — coming soon"
   >
     <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
       <path fill="#EA4335" d="M3.6 1.7c-.3.3-.5.8-.5 1.4v17.8c0 .6.2 1.1.5 1.4l11-11-11-9.6z" />
       <path fill="#FBBC04" d="M18.2 14.5l-3.6-3.4-3 3 3 3 3.6-2.1c1.1-.6 1.1-1.9 0-2.5z" />
       <path fill="#4285F4" d="M14.6 11.1l-3 3 3 3.4 4-2.3-4-4.1z" />
       <path fill="#34A853" d="M3.6 22.3c.4.4 1 .5 1.7.1l13.5-7.7-4.2-3.6-11 11.2z" />
-      <path fill="#34A853" opacity=".0" d="M0 0h24v24H0z" />
     </svg>
     <span class="store-badge__text">
-      <span class="store-badge__small">GET IT ON</span>
+      <span class="store-badge__small">Coming soon to</span>
       <span class="store-badge__large">Google Play</span>
     </span>
-  </a>
+  </span>
 </div>
 
 <style>
@@ -47,8 +44,25 @@ const playStoreUrl = '#';
     display: flex;
     flex-wrap: wrap;
     gap: 0.75rem;
-    justify-content: center;
+    justify-content: flex-start;
     margin-top: 2rem;
+  }
+
+  .store-badge--disabled {
+    background: #1f1f1f;
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+
+  .store-badge--disabled:hover {
+    background: #1f1f1f;
+    transform: none;
+  }
+
+  @media (max-width: 860px) {
+    .store-badges {
+      justify-content: center;
+    }
   }
 
   .store-badge {

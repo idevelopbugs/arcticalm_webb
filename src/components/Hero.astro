@@ -4,23 +4,44 @@ import StoreBadges from './StoreBadges.astro';
 
 <section class="hero">
   <div class="hero__inner">
-    <img
-      class="hero__icon"
-      src="/app-icon.png"
-      alt="Arcticalm app icon"
-      width="128"
-      height="128"
-      fetchpriority="high"
-    />
-    <h1 class="hero__title">Arcticalm</h1>
-    <p class="hero__tagline">
-      Guided breathing, meditation, and cold exposure tracking — built for everyone.
-    </p>
-    <p class="hero__sub">
-      A calm, accessible wellness companion for iOS and Android. Designed to work
-      with screen readers, with audio off, and with Reduce Motion enabled.
-    </p>
-    <StoreBadges />
+    <div class="hero__text">
+      <img
+        class="hero__icon"
+        src="/app-icon.png"
+        alt="Arcticalm app icon"
+        width="96"
+        height="96"
+        fetchpriority="high"
+      />
+      <h1 class="hero__title">Arcticalm</h1>
+      <p class="hero__tagline">
+        Guided breathing, meditation, and cold exposure tracking — built for everyone.
+      </p>
+      <p class="hero__sub">
+        A calm, accessible wellness companion for iOS and Android. Designed to work
+        with screen readers, with audio off, and with Reduce Motion enabled.
+      </p>
+      <StoreBadges />
+    </div>
+
+    <div class="hero__shots" aria-hidden="false">
+      <img
+        class="hero__shot hero__shot--back"
+        src="/screenshot-activities.jpg"
+        alt="Arcticalm activities screen showing breathwork and meditation options"
+        width="945"
+        height="2048"
+        loading="eager"
+      />
+      <img
+        class="hero__shot hero__shot--front"
+        src="/screenshot-breathing.jpg"
+        alt="Arcticalm 4-7-8 breathing session in progress"
+        width="945"
+        height="2048"
+        loading="eager"
+      />
+    </div>
   </div>
 </section>
 
@@ -35,18 +56,25 @@ import StoreBadges from './StoreBadges.astro';
   }
 
   .hero__inner {
-    max-width: 38rem;
-    text-align: center;
+    width: 100%;
+    max-width: 78rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 3rem;
+  }
+
+  .hero__text {
+    text-align: left;
   }
 
   .hero__icon {
     display: inline-flex;
-    align-self: center;
-    width: 128px;
-    height: 128px;
-    border-radius: 28px;
+    width: 96px;
+    height: 96px;
+    border-radius: 22px;
     box-shadow: 0 20px 40px -20px rgba(20, 60, 100, 0.35);
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.25rem;
   }
 
   .hero__title {
@@ -69,5 +97,65 @@ import StoreBadges from './StoreBadges.astro';
     color: #335778;
     margin: 0;
     line-height: 1.6;
+  }
+
+  .hero__shots {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 32rem;
+  }
+
+  .hero__shot {
+    position: absolute;
+    width: auto;
+    height: 30rem;
+    max-height: 70vh;
+    border-radius: 2.25rem;
+    box-shadow: 0 30px 60px -20px rgba(12, 34, 54, 0.35),
+                0 0 0 2px rgba(255, 255, 255, 0.6);
+    background: #000;
+  }
+
+  .hero__shot--back {
+    transform: translateX(28%) rotate(6deg);
+    opacity: 0.95;
+  }
+
+  .hero__shot--front {
+    transform: translateX(-22%) rotate(-4deg);
+    z-index: 1;
+  }
+
+  @media (max-width: 860px) {
+    .hero__inner {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+
+    .hero__text {
+      text-align: center;
+    }
+
+    .hero__shots {
+      min-height: 26rem;
+      order: 2;
+    }
+
+    .hero__shot {
+      height: 24rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero__shot--back,
+    .hero__shot--front {
+      transform: none;
+      position: relative;
+    }
+    .hero__shots {
+      gap: 1rem;
+    }
   }
 </style>
