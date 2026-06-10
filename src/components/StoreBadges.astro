@@ -1,5 +1,6 @@
 ---
 const appStoreUrl = 'https://apps.apple.com/us/app/arcticalm/id6767191056';
+const playStoreUrl = 'https://play.google.com/store/apps/details?id=com.arcticalm';
 ---
 
 <div class="store-badges">
@@ -21,10 +22,11 @@ const appStoreUrl = 'https://apps.apple.com/us/app/arcticalm/id6767191056';
     </span>
   </a>
 
-  <span
-    class="store-badge store-badge--google store-badge--disabled"
-    role="text"
-    aria-label="Arcticalm on Google Play — coming soon"
+  <a
+    class="store-badge store-badge--google"
+    href={playStoreUrl}
+    aria-label="Get Arcticalm on Google Play"
+    rel="noopener"
   >
     <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
       <path fill="#EA4335" d="M3.6 1.7c-.3.3-.5.8-.5 1.4v17.8c0 .6.2 1.1.5 1.4l11-11-11-9.6z" />
@@ -33,10 +35,10 @@ const appStoreUrl = 'https://apps.apple.com/us/app/arcticalm/id6767191056';
       <path fill="#34A853" d="M3.6 22.3c.4.4 1 .5 1.7.1l13.5-7.7-4.2-3.6-11 11.2z" />
     </svg>
     <span class="store-badge__text">
-      <span class="store-badge__small">Coming soon to</span>
+      <span class="store-badge__small">GET IT ON</span>
       <span class="store-badge__large">Google Play</span>
     </span>
-  </span>
+  </a>
 </div>
 
 <style>
@@ -46,17 +48,6 @@ const appStoreUrl = 'https://apps.apple.com/us/app/arcticalm/id6767191056';
     gap: 0.75rem;
     justify-content: flex-start;
     margin-top: 2rem;
-  }
-
-  .store-badge--disabled {
-    background: #1f1f1f;
-    opacity: 0.7;
-    cursor: not-allowed;
-  }
-
-  .store-badge--disabled:hover {
-    background: #1f1f1f;
-    transform: none;
   }
 
   @media (max-width: 860px) {
