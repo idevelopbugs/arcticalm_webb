@@ -9,6 +9,7 @@ const playStoreUrl = 'https://play.google.com/store/apps/details?id=com.arctical
     href={appStoreUrl}
     aria-label="Download Arcticalm on the App Store"
     rel="noopener"
+    data-fb-event="ClickIOS"
   >
     <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
       <path
@@ -27,6 +28,7 @@ const playStoreUrl = 'https://play.google.com/store/apps/details?id=com.arctical
     href={playStoreUrl}
     aria-label="Get Arcticalm on Google Play"
     rel="noopener"
+    data-fb-event="ClickAndroid"
   >
     <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
       <path fill="#EA4335" d="M3.6 1.7c-.3.3-.5.8-.5 1.4v17.8c0 .6.2 1.1.5 1.4l11-11-11-9.6z" />
@@ -99,3 +101,14 @@ const playStoreUrl = 'https://play.google.com/store/apps/details?id=com.arctical
     font-weight: 600;
   }
 </style>
+
+<script>
+  document.querySelectorAll<HTMLAnchorElement>('.store-badge[data-fb-event]').forEach((el) => {
+    el.addEventListener('click', () => {
+      const eventName = el.dataset.fbEvent;
+      if (eventName && typeof (window as any).fbq === 'function') {
+        (window as any).fbq('trackCustom', eventName);
+      }
+    });
+  });
+</script>
