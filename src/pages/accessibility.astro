@@ -39,8 +39,8 @@ import '../styles/global.css';
           We also align with platform-native accessibility APIs:
         </p>
         <ul>
-          <li><strong>iOS</strong> — UIAccessibility (VoiceOver, Dynamic Type, Reduce Motion, Switch Control)</li>
-          <li><strong>Android</strong> — AccessibilityNodeInfo (TalkBack, font scaling, high-contrast text)</li>
+          <li><strong>iOS</strong> — UIAccessibility (VoiceOver, Dynamic Type, Switch Control)</li>
+          <li><strong>Android</strong> — AccessibilityNodeInfo (TalkBack, font scaling)</li>
         </ul>
         <p>
           This is a statement of intent and ongoing effort, not a third-party audit
@@ -107,17 +107,22 @@ import '../styles/global.css';
 
         <h3>2.7 No motion-only signals</h3>
         <p>
-          We respect the system <strong>Reduce Motion</strong> preference where
-          available. The animated breathing visuals are decorative — phase
-          information is also delivered via audio and text, so users who disable
-          motion lose nothing functional.
+          No information is carried by motion alone. The animated breathing
+          visuals are decorative — phase information is also delivered as audio
+          and as announced text, so nothing functional depends on seeing the
+          animation move.
+        </p>
+        <p>
+          The app does not yet read the system <strong>Reduce Motion</strong>
+          preference to suppress those animations. We would rather say so than
+          claim support we have not built.
         </p>
 
         <h3>2.8 Localization</h3>
         <p>
           Every user-facing string — including accessibility labels, hints, and
-          screen-reader announcements — is fully translated into the three
-          languages we support: <strong>English, French, and Spanish</strong>. No
+          screen-reader announcements — is fully translated into the four
+          languages we support: <strong>English, French, Spanish, and Swedish</strong>. No
           English is hardcoded in component code.
         </p>
 
